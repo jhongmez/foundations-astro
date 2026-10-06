@@ -1,4 +1,6 @@
 ---
+import Navbar from '../components/navbar.astro';
+
 const title = 'Home Page';
 const name = "Jhon Gómez";
 ---
@@ -13,6 +15,7 @@ const name = "Jhon Gómez";
 		<title>{title}</title>
 	</head>
 	<body>
+		<Navbar />
 		<h1>Hola, {name}!</h1>
 		<p>Momento actual: {new Date().toLocaleTimeString()}</p>
 		<p id="current-time">Momento actual real: </p>
