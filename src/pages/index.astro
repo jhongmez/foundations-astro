@@ -1,23 +1,18 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
-
+import CustomTitle from '../components/CustomTitle.astro';
 const title = 'Home Page';
 const name = "Jhon Gómez";
 ---
 
 <MainLayout {title}>
 	<h1>Hola, {name}!</h1>
+	<CustomTitle title={title} />
+	
 	<p>Momento actual: {new Date().toLocaleTimeString()}</p>
 	<p id="current-time">Momento actual real: </p>
-	<footer>
-		<p>&copy; 2023 Mi Sitio Web. Todos los derechos reservados.</p>
-	</footer>
 	<script>
-		const currentYear: number = new Date().getFullYear();
-		const footer = document.querySelector('footer p') as HTMLParagraphElement;
 		const currentTime = document.querySelector('#current-time') as HTMLParagraphElement;
-
-		footer.innerHTML = `Año: ${currentYear} - Todos los derechos reservados.`;
 		currentTime.innerHTML = `Momento actual real: ${new Date().toLocaleTimeString()}`;
 	</script>
 </MainLayout>

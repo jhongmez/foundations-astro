@@ -1,9 +1,16 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
-
+import CustomTitle from '../components/CustomTitle.astro';
 const title: string = 'About';
 ---
 
 <MainLayout {title}>
 	<h1>About</h1>
+	<CustomTitle title="This is a custom title" />
 </MainLayout>
+
+<style>
+	h1 {
+		color: green;
+	}
+</style>
