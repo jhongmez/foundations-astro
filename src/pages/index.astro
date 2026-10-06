@@ -1,34 +1,23 @@
 ---
-import Navbar from '../components/navbar.astro';
+import MainLayout from '../layouts/MainLayout.astro';
 
 const title = 'Home Page';
 const name = "Jhon Gómez";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<Navbar />
-		<h1>Hola, {name}!</h1>
-		<p>Momento actual: {new Date().toLocaleTimeString()}</p>
-		<p id="current-time">Momento actual real: </p>
-		<footer>
-			<p>&copy; 2023 Mi Sitio Web. Todos los derechos reservados.</p>
-		</footer>
-		<script>
-			const currentYear: number = new Date().getFullYear();
-			const footer = document.querySelector('footer p') as HTMLParagraphElement;
-			const currentTime = document.querySelector('#current-time') as HTMLParagraphElement;
+<MainLayout {title}>
+	<h1>Hola, {name}!</h1>
+	<p>Momento actual: {new Date().toLocaleTimeString()}</p>
+	<p id="current-time">Momento actual real: </p>
+	<footer>
+		<p>&copy; 2023 Mi Sitio Web. Todos los derechos reservados.</p>
+	</footer>
+	<script>
+		const currentYear: number = new Date().getFullYear();
+		const footer = document.querySelector('footer p') as HTMLParagraphElement;
+		const currentTime = document.querySelector('#current-time') as HTMLParagraphElement;
 
-			footer.innerHTML = `Año: ${currentYear} - Todos los derechos reservados.`;
-			currentTime.innerHTML = `Momento actual real: ${new Date().toLocaleTimeString()}`;
-		</script>
-	</body>
-</html>
+		footer.innerHTML = `Año: ${currentYear} - Todos los derechos reservados.`;
+		currentTime.innerHTML = `Momento actual real: ${new Date().toLocaleTimeString()}`;
+	</script>
+</MainLayout>
